@@ -15,5 +15,10 @@ end
 
 describe file('/etc/httpd/conf/httpd.conf') do
   it { should be_file }
-  its(:content) { should match /ServerName web_server/ }
+  its(:content) { should match /ServerName localhost/ }
+end
+
+describe file('/home/vagrant/public_html/index.html') do
+  it { should be_file }
+  its(:content) { should match /hello!/ }
 end
